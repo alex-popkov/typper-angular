@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="typper">
+  <head>
+    <meta charset="utf-8">
+    <title>Typper</title>
+    <link rel="stylesheet" href="app/app.css" />
+    <link rel="stylesheet" href="app/app.animations.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/app.animations.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/checkmark/checkmark.filter.js"></script>
+    <script src="app/core/phone/phone.module.js"></script>
+    <script src="app/core/phone/phone.service.js"></script>
+    <script src="app/phone-list/phone-list.module.js"></script>
+    <script src="app/phone-list/phone-list.component.js"></script>
+    <script src="app/phone-detail/phone-detail.module.js"></script>
+    <script src="app/phone-detail/phone-detail.component.js"></script>
+  </head>
+  <body>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+  </body>
+</html>

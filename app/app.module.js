@@ -1,10 +1,12 @@
 'use strict';
 
-// Define the `phonecatApp` module
-angular.module('phonecatApp', [
-  'ngAnimate',
-  'ngRoute',
-  'core',
-  'phoneDetail',
-  'phoneList',
+// Define the `typper` module
+angular.module('typper', [
+
+    'ngAnimate',
+    'ngRoute',
+    'core',
+    'phoneDetail',
+    'phoneList',
+    'ngMaterial'
 ]);
