@@ -1,1 +1,56 @@
-<div>123</div>
+<div
+    data-ng-repeat="post in posts"
+    class="view  brick  mdl-card-wrapper  list-view">
+    <div
+        class="mdl-card  mdl-shadow--2dp social-fb"
+        data-list-item-id="{{post[ 0 ]}}">
+        <div
+            class="content-wrapper">
+            <div
+                class="brick  text-wrapper">
+                <div
+                    class="view-title">
+                    <h2
+                        data-ng-if="post[ 4 ]"
+                        class="view-title-text">
+                        {{post[ 4 ]}}
+                    </h2>
+                </div>
+                <div
+                    class="brick center-block-wrapper  post-created-date-wrapper">
+                    <i
+                        class="awesome-icons"
+                        aria-hidden="true">
+                        &#xf09a;
+                    </i>
+                    <div
+                        data-ng-if="post[ 3 ]"
+                        class="post-created-date">
+                        {{post[ 3 ]}}
+                    </div>
+                </div>
+            </div>
+            <div
+                class="img-block-wrapper brick">
+                <div
+                    class="brick img-container"
+                    data-ng-if="post[ 7 ][ 7 ][ 6 ]"
+                    style="background-image: url('{{post[ 7 ][ 7 ][ 6 ]}}')"
+                </div>
+                <div
+                    class="brick img-container"
+                    data-ng-if="post[ 6 ][ 6 ] && !post[ 7 ][ 7 ][ 6 ]"
+                    style="background-image: url('{{post[ 7 ][ 6 ]}}')"
+                </div>
+                <div
+                    data-ng-if="post[ 6 ][ 6 ] || post[ 7 ][ 7 ][ 6 ]"
+                    class="color-filter color-filter-solid-trans">
+                </div>
+                <div
+                    data-ng-if="!post[ 6 ][ 6 ] && !post[ 7 ][ 7 ][ 6 ]"
+                    class="color-filter color-filter-solid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

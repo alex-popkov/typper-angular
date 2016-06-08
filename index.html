@@ -16,21 +16,20 @@
     <script src="app/typper.application/application.config.js"></script>
     <script src="app/typper.posts/posts.module.js"></script>
     <script src="app/typper.posts/posts.component.js"></script>
+    <script src="app/typper.posts/services/getdata.module.js"></script>
+    <script src="app/typper.posts/services/getdata.service.js"></script>
   <body
     ng-controller="ApplicationCtrl">
     <!-- header-->
     <md-toolbar
       class="app-toolbar md-indigo-theme md-whiteframe-z2 fix-top" >
       <div
-              class="md-toolbar-tools"
-              tabindex="0">
+        class="md-toolbar-tools"
+        tabindex="0">
         <md-button
-                class="menu-icon normal-btn"
+                class="menu-icon menu-btn"
                 data-ng-click="toggleRight( )"
-                data-aria-label="Toggle Menu">
-                <md-icon
-                        data-icon="">
-                </md-icon>
+                aria-label="Toggle Menu">
         </md-button>
         Typper
       </div>
@@ -38,7 +37,7 @@
 
     <!--views-->
     <div
-        data-ng-view class="view-frame">
+        data-ng-view class="view-wrapper">
     </div>
 
     <!-- sidebar -->
