@@ -1,35 +1,68 @@
 <!doctype html>
-<html lang="en" ng-app="typper">
+<html lang="en" data-ng-app="typper.application">
   <head>
     <meta charset="utf-8">
     <title>Typper</title>
-    <link rel="stylesheet" href="app/app.css" />
-    <link rel="stylesheet" href="app/app.animations.css" />
+    <link rel="stylesheet" href="app/typper.application/stylesheets/application.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="app/app.module.js"></script>
-    <script src="app/app.config.js"></script>
-    <script src="app/app.animations.js"></script>
-    <script src="app/core/core.module.js"></script>
-    <script src="app/core/checkmark/checkmark.filter.js"></script>
-    <script src="app/core/phone/phone.module.js"></script>
-    <script src="app/core/phone/phone.service.js"></script>
-    <script src="app/phone-list/phone-list.module.js"></script>
-    <script src="app/phone-list/phone-list.component.js"></script>
-    <script src="app/phone-detail/phone-detail.module.js"></script>
-    <script src="app/phone-detail/phone-detail.component.js"></script>
-  </head>
-  <body>
+    <script src="app/typper.application/application.module.js"></script>
+    <script src="app/typper.application/application.config.js"></script>
+    <script src="app/typper.posts/posts.module.js"></script>
+    <script src="app/typper.posts/posts.component.js"></script>
+  <body
+    ng-controller="ApplicationCtrl">
+    <!-- header-->
+    <md-toolbar
+      class="app-toolbar md-indigo-theme md-whiteframe-z2 fix-top" >
+      <div
+              class="md-toolbar-tools"
+              tabindex="0">
+        <md-button
+                class="menu-icon normal-btn"
+                data-ng-click="toggleRight( )"
+                data-aria-label="Toggle Menu">
+                <md-icon
+                        data-icon="">
+                </md-icon>
+        </md-button>
+        Typper
+      </div>
+    </md-toolbar>
 
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
+    <!--views-->
+    <div
+        data-ng-view class="view-frame">
     </div>
+
+    <!-- sidebar -->
+    <md-sidenav
+        class="md-sidenav-left md-whiteframe-z2"
+        data-md-component-id="left">
+        <div
+            data-ng-click="close( )">
+            <md-toolbar>
+              <h1
+                class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <md-content >
+              <a
+                  class="menu-item menu-sub-item md-menu-item"
+                  data-ng-click="menu.toggleSelectPage(page)"
+                  data-ng-repeat="page in menu.pages"
+                  data-ng-href="#{{page.url}}"
+                  data-md-highlight="menu.isPageSelected(page)"
+                  data-md-ink-ripple="#bbb">
+                  <span>Typper</span>
+              </a>
+            </md-content>
+        </div>
+    </md-sidenav>
   </body>
 </html>
