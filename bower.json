@@ -12,6 +12,7 @@
     "angular-resource": "1.5.x",
     "angular-route": "1.5.x",
     "angular-aria": "1.5.x",
-    "angular-material": ""
+    "angular-material": "",
+    "font-awesome": "^4.6.3"
   }
 }
