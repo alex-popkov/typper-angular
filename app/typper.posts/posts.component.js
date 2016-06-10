@@ -15,8 +15,6 @@ angular
                 $scope.postsConstants = POSTS_CONSTANTS;
                 $scope.viewportSize = GetViewportSize;
 
-                console.log( $scope.viewportSize.width, $scope.viewportSize.height);
-
                 $http
                     .get( 'app/typper.posts/resources/data/postsdata0.json' )
                     .then( function( response ){
