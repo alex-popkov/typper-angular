@@ -1,16 +1,17 @@
 'use strict';
 
 // Define the `typper.application` module
-angular.
+angular
 
-    module('typper.application', [
+    .module('typper.application', [
 
         'ngAnimate',
         'ngRoute',
+        'ngMaterial',
         'typper.posts',
-        'ngMaterial'
-    ]).
-    controller( 'ApplicationCtrl', function( $scope, $mdSidenav ) {
+        'typper.services'
+    ])
+    .controller( 'ApplicationCtrl', function( $scope, $mdSidenav ) {
 
         $scope.toggleRight = function( ){
 

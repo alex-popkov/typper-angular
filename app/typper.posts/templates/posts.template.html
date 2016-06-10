@@ -1,4 +1,6 @@
+<!--mobile list template-->
 <div
+    ng-if="viewportSize.width < postsConstants.LIST_WIDTH"
     data-ng-repeat="post in posts"
     class="view  brick  mdl-card-wrapper  list-view">
     <div
@@ -60,4 +62,78 @@
             </div>
         </div>
     </div>
+</div>
+
+<!--teo column view template-->
+<div
+    ng-if="viewportSize.width > postsConstants.LIST_WIDTH && viewportSize.width < postsConstants.COLUMN_WIDTH"
+    data-ng-repeat="post in posts"
+    class="view brick mdl-card-wrapper column-view">
+    <div
+        class="mdl-card mdl-shadow--2dp"
+        data-ng-class="{'social-fb': post.source == postsConstants.FACEBOOK,
+        'social-tw': post.source == postsConstants.TWITTER,
+        'social-g': post.source == postsConstants.GOOGLE_PLUS,
+        'social-inst': post.source == postsConstants.INSTAGRAM}"
+        data-list-item-id="{{post.id}}">
+        <div
+            class="content-wrapper">
+            <div
+                class="brick text-wrapper">
+                <div
+                    class="view-title ba">
+                    <h2
+                        data-ng-if="post.text"
+                        class="view-title-text">
+                        {{post.text}}
+                    </h2>
+                </div>
+                <div
+                    class="brick center-block-wrapper post-created-date-wrapper sa">
+                    <i
+                        class="awesome-icons fa"
+                        data-ng-class="{'fa-facebook': post.source == postsConstants.FACEBOOK,
+                        'fa-twitter': post.source == postsConstants.TWITTER,
+                        'fa-google-plus': post.source == postsConstants.GOOGLE_PLUS,
+                        'fa-instagram': post.source == postsConstants.INSTAGRAM}"
+                        aria-hidden="true">
+                    </i>
+                    <div
+                        data-ng-if="post.createdTime"
+                        class="post-created-date">
+                        {{post.createdTime}}
+                    </div>
+                </div>
+            </div>
+            <div
+                class="img-block-wrapper brick">
+                <div
+                    class="brick img-container"
+                    data-ng-if="post.video"
+                    style="background-image: url('{{post.video[ 0 ].image.sourceLink}}')">
+                </div>
+                <div
+                    class="brick img-container"
+                    data-ng-if="post.image && !post.video"
+                    style="background-image: url('{{post.image[ 0 ].sourceLink}}')">
+                </div>
+                <div
+                    data-ng-if="post.image || post.video"
+                    class="color-filter color-filter-solid-trans">
+                </div>
+                <div
+                    data-ng-if="!post.image && !post.video"
+                    class="color-filter color-filter-solid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Goldenratio view-->
+<div
+        ng-if="viewportSize.width > postsConstants.COLUMN_WIDTH"
+        data-ng-repeat="post in posts"
+        class="view brick mdl-card-wrapper column-view">
+    test
 </div>

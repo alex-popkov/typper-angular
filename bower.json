@@ -13,6 +13,7 @@
     "angular-route": "1.5.x",
     "angular-aria": "1.5.x",
     "angular-material": "",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "jquery": "^3.0.0"
   }
 }

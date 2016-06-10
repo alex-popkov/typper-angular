@@ -1,18 +1,21 @@
 'use strict';
 
 // Register `typper.posts` component, along with its associated controller and template
-angular.
+angular
 
-    module('typper.posts').
+    .module('typper.posts')
 
-    component( 'postsComponent', {
+    .component( 'postsComponent', {
 
         templateUrl: 'app/typper.posts/templates/posts.template.html',
-        controller: [ '$scope', '$http', 'POSTS_CONSTANTS',
+        controller: [ '$scope', '$http', 'POSTS_CONSTANTS', 'GetViewportSize',
 
-            function postsCtrl( $scope, $http, POSTS_CONSTANTS ){
+            function postsCtrl( $scope, $http, POSTS_CONSTANTS, GetViewportSize ){
 
                 $scope.postsConstants = POSTS_CONSTANTS;
+                $scope.viewportSize = GetViewportSize;
+
+                console.log( $scope.viewportSize.width, $scope.viewportSize.height);
 
                 $http
                     .get( 'app/typper.posts/resources/data/postsdata0.json' )
