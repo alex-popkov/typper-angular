@@ -1,6 +1,6 @@
 <!--mobile list template-->
 <div
-    ng-if="viewportWidth < postsConstants.LIST_WIDTH"
+    data-ng-if="viewportWidth < postsConstants.LIST_WIDTH"
     data-ng-repeat="post in posts"
     class="view  brick  mdl-card-wrapper  list-view">
     <div
@@ -64,9 +64,9 @@
     </div>
 </div>
 
-<!--teo column view template-->
+<!--two column view template-->
 <div
-    ng-if="viewportWidth > postsConstants.LIST_WIDTH && viewportWidth < postsConstants.COLUMN_WIDTH"
+    data-ng-if="viewportWidth > postsConstants.LIST_WIDTH && viewportWidth < postsConstants.COLUMN_WIDTH"
     data-ng-repeat="post in posts"
     class="view brick mdl-card-wrapper column-view">
     <div
@@ -132,8 +132,922 @@
 
 <!--Goldenratio view-->
 <div
-        ng-if="viewportWidth > postsConstants.COLUMN_WIDTH"
-        data-ng-repeat="post in posts"
-        class="view brick mdl-card-wrapper column-view">
-    test
+    data-ng-if="viewportWidth > postsConstants.COLUMN_WIDTH">
+    <div
+        data-ng-repeat="template in templates track by $index">
+        <!--one view tpl-->
+        <div
+            data-ng-if="template.template == '1.0'"
+            data-tpl="0"
+            class="view goldenratio-view brick mdl-card-wrapper">
+            <div
+                class="mdl-card mdl-shadow--2dp"
+                data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                <div
+                    class="content-wrapper">
+                    <div
+                        class="brick text-wrapper">
+                        <div
+                            class="view-title">
+                            <h2
+                                data-ng-if="pageData[ $index ][ 0 ].text"
+                                class="view-title-text">
+                                {{pageData[ $index ][ 0 ].text}}
+                            </h2>
+                        </div>
+                        <div
+                            class="brick center-block-wrapper post-created-date-wrapper">
+                            <i
+                                class="awesome-icons fa"
+                               data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                               aria-hidden="true">
+                            </i>
+                            <div
+                                data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                class="post-created-date">
+                                {{pageData[ $index ][ 0 ].createdTime}}
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="img-block-wrapper">
+                        <div
+                                class="brick img-container"
+                                data-ng-if="pageData[ $index ][ 0 ].video"
+                                style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                        </div>
+                        <div
+                                class="brick img-container"
+                                data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                        </div>
+                        <div
+                                data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                class="color-filter color-filter-solid-trans">
+                        </div>
+                        <div
+                                data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                class="color-filter color-filter-solid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--two view tpl_0-->
+        <div
+            data-ng-if="template.template == '2.0'"
+            data-tpl="1"
+            class="view goldenratio-view brick">
+            <div
+                class="as brick mdl-card-wrapper">
+            <div
+                    class="mdl-card mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-s">
+                            <div
+                                class="view-title ba">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 0 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 0 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 0 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper brick">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="ab brick mdl-card-wrapper">
+                <div
+                    class="mdl-card mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper  text-wrapper_two-view-b">
+                            <div
+                                class="view-title">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 1 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 1 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 1 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 1 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 1 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].video[ 1 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].image[ 1 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--two view tpl_1-->
+        <div
+            data-ng-if="template.template == '2.1'"
+            data-tpl="2"
+            class="view goldenratio-view brick">
+            <div
+                class="ab brick mdl-card-wrapper">
+                <div
+                    class="mdl-card  mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                        'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                        'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                        'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-b">
+                            <div
+                                class="view-title">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 0 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 0 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 0 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="as brick  mdl-card-wrapper">
+                <div
+                    class="mdl-card  mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-s">
+                            <div
+                                class="view-title ba">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 1 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 1 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 1 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 1 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper brick">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 1 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].video[ 1 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].image[ 1 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--three view tpl_0-->
+        <div
+            data-ng-if="template.template == '3.0'"
+            data-tpl="3"
+            class="view goldenratio-view brick">
+            <div
+                class="as brick mdl-card-wrapper">
+                <div
+                    class="mdl-card  mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-s">
+                            <div
+                                class="view-title ba">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 0 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 0 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 0 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper brick">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 1 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="ab brick">
+                <div
+                    class="as brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card  mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick  text-wrapper  text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 1 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 1 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 1 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 1 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="ab brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card  mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick text-wrapper text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 2 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 2 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 2 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 2 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 2 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 2 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 2 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 2 ].image || pageData[ $index ][ 2 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--three view tpl_1-->
+        <div
+            data-ng-if="template.template == '3.1'"
+            data-tpl="4"
+            class="view goldenratio-view brick">
+            <div
+                class="as brick mdl-card-wrapper">
+                <div
+                    class="mdl-card mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-s">
+                            <div
+                                class="view-title ba">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 0 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 0 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 0 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                                class="img-block-wrapper brick">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="ab brick">
+                <div
+                    class="ab brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                        'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                        'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                        'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick text-wrapper text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 1 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 1 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 1 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 1 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="as brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick text-wrapper text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 2 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 2 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 2 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 2 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 2 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 2 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 2 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 2 ].image || pageData[ $index ][ 2 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--three view tpl_2-->
+        <div
+            data-ng-if="template.template == '3.2'"
+            data-tpl="5"
+            class="view goldenratio-view brick">
+            <div
+                class="ab brick">
+                <div
+                    class="as brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick text-wrapper text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 0 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 0 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 0 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 0 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 0 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 0 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 0 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 0 ].image || pageData[ $index ][ 0 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 0 ].image && !pageData[ $index ][ 0 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="ab brick mdl-card-wrapper">
+                    <div
+                        class="mdl-card mdl-shadow--2dp"
+                        data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        <div
+                            class="content-wrapper">
+                            <div
+                                class="brick text-wrapper text-wrapper_two-view-s">
+                                <div
+                                    class="view-title ba">
+                                    <h2
+                                        data-ng-if="pageData[ $index ][ 1 ].text"
+                                        class="view-title-text">
+                                        {{pageData[ $index ][ 1 ].text}}
+                                    </h2>
+                                </div>
+                                <div
+                                    class="brick center-block-wrapper post-created-date-wrapper">
+                                    <i
+                                        class="awesome-icons fa"
+                                        data-ng-class="{'fa-facebook': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
+                                        'fa-twitter': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
+                                        'fa-google-plus': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
+                                        'fa-instagram': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
+                                        aria-hidden="true">
+                                    </i>
+                                    <div
+                                        data-ng-if="pageData[ $index ][ 1 ].createdTime"
+                                        class="post-created-date">
+                                        {{pageData[ $index ][ 1 ].createdTime}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="img-block-wrapper brick">
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].video[ 0 ].image.sourceLink}}')">
+                                </div>
+                                <div
+                                        class="brick img-container"
+                                        data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        style="background-image: url('{{pageData[ $index ][ 1 ].image[ 0 ].sourceLink}}')">
+                                </div>
+                                <div
+                                        data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid-trans">
+                                </div>
+                                <div
+                                        data-ng-if="!pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
+                                        class="color-filter color-filter-solid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="as brick mdl-card-wrapper">
+                <div
+                    class="mdl-card mdl-shadow--2dp"
+                    data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                            'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                            'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                            'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                    data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                    <div
+                        class="content-wrapper">
+                        <div
+                            class="brick text-wrapper text-wrapper_two-view-s">
+                            <div
+                                class="view-title ba">
+                                <h2
+                                    data-ng-if="pageData[ $index ][ 2 ].text"
+                                    class="view-title-text">
+                                    {{pageData[ $index ][ 2 ].text}}
+                                </h2>
+                            </div>
+                            <div
+                                class="brick center-block-wrapper post-created-date-wrapper">
+                                <i
+                                    class="awesome-icons fa"
+                                    data-ng-class="{'fa-facebook': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
+                                    'fa-twitter': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
+                                    'fa-google-plus': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
+                                    'fa-instagram': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
+                                    aria-hidden="true">
+                                </i>
+                                <div
+                                    data-ng-if="pageData[ $index ][ 2 ].createdTime"
+                                    class="post-created-date">
+                                    {{pageData[ $index ][ 2 ].createdTime}}
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="img-block-wrapper brick">
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 2 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 2 ].video[ 0 ].image.sourceLink}}')">
+                            </div>
+                            <div
+                                    class="brick img-container"
+                                    data-ng-if="pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                    style="background-image: url('{{pageData[ $index ][ 2 ].image[ 0 ].sourceLink}}')">
+                            </div>
+                            <div
+                                    data-ng-if="pageData[ $index ][ 2 ].image || pageData[ $index ][ 2 ].video"
+                                    class="color-filter color-filter-solid-trans">
+                            </div>
+                            <div
+                                    data-ng-if="!pageData[ $index ][ 2 ].image && !pageData[ $index ][ 2 ].video"
+                                    class="color-filter color-filter-solid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

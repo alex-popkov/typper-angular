@@ -8,9 +8,9 @@ angular
     .component( 'postsComponent', {
 
         templateUrl: 'app/typper.posts/templates/posts.template.html',
-        controller: [ '$scope', '$http', 'POSTS_CONSTANTS',
+        controller: [ '$scope', '$http', 'POSTS_CONSTANTS', 'GoldenratioTemplate',
 
-            function postsCtrl( $scope, $http, POSTS_CONSTANTS ){
+            function postsCtrl( $scope, $http, POSTS_CONSTANTS, GoldenratioTemplate ){
 
                 $scope.postsConstants = POSTS_CONSTANTS;
 
@@ -111,8 +111,25 @@ angular
                                 }
                             );
                         });
-                    });
 
+                        //
+                        $scope.templates = GoldenratioTemplate.getResult( $scope.posts.length );
+
+                        console.log( $scope.templates );
+
+                        $scope.pageData = [];
+                        angular.forEach( $scope.templates, function( tpl ){
+
+                            $scope.dataArray = [ ];
+
+                            for( var i = 0; i < tpl.postsNumber; i++ ){
+
+                                $scope.dataArray.push( $scope.posts[ i ] );
+                            }
+                            $scope.pageData.push( $scope.dataArray );
+                        });
+                        console.log( $scope.pageData );
+                    });
 
                 $scope.$on( '$destroy', function( ){
 

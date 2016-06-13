@@ -60,7 +60,8 @@ div.list-view {
     z-index: 999; }
 
 div.goldenratio-view {
-  width: 100%; }
+  width: 100%;
+  height: 100px; }
   div.goldenratio-view div.mdl-card {
     cursor: pointer; }
   div.goldenratio-view div.content-wrapper {
@@ -2646,12 +2647,7 @@ div.view-wrapper {
   overflow-y: auto; }
   div.view-wrapper div.view-content {
     height: 100%;
-    width: 100%;
-    transition: all 5s; }
-  div.view-wrapper div.view-content.ng-enter,
-  div.view-wrapper div.view-content.ng-leave {
-    height: 0 !important;
-    background: red; }
+    width: 100%; }
 
 .app-toolbar div.md-toolbar-tools .menu-btn {
   width: 56px;
