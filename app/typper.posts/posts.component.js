@@ -8,12 +8,23 @@ angular
     .component( 'postsComponent', {
 
         templateUrl: 'app/typper.posts/templates/posts.template.html',
-        controller: [ '$scope', '$http', 'POSTS_CONSTANTS', 'GetViewportSize',
+        controller: [ '$scope', '$http', 'POSTS_CONSTANTS',
 
-            function postsCtrl( $scope, $http, POSTS_CONSTANTS, GetViewportSize ){
+            function postsCtrl( $scope, $http, POSTS_CONSTANTS ){
 
                 $scope.postsConstants = POSTS_CONSTANTS;
-                $scope.viewportSize = GetViewportSize;
+
+                $scope.viewportHeight = angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+                $scope.viewportWidth = angular.element( document.querySelectorAll( '.view-content' ) )[ 0 ].clientWidth;
+
+                var destroy = angular.element( window ).bind( 'resize', function( ){
+
+                    $scope.$apply( function( ){
+
+                        $scope.viewportHeight = angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+                        $scope.viewportWidth = angular.element( document.querySelectorAll( '.view-content' ) )[ 0 ].clientWidth;
+                    } );
+                });
 
                 $http
                     .get( 'app/typper.posts/resources/data/postsdata0.json' )
@@ -101,6 +112,12 @@ angular
                             );
                         });
                     });
+
+
+                $scope.$on( '$destroy', function( ){
+
+                    destroy( );
+                } );
             }
         ]
     });

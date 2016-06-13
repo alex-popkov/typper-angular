@@ -21,5 +21,6 @@ angular
 
             $mdSidenav( 'left' ).close( );
         };
+
     });
 

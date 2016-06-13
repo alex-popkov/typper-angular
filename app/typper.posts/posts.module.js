@@ -5,5 +5,6 @@ angular
 
     .module( 'typper.posts', [
 
-        'typper.services'
+        'typper.services',
+        'ngAnimate'
     ] );

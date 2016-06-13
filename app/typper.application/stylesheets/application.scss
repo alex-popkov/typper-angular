@@ -13,6 +13,18 @@ div.view-wrapper {
   box-sizing: border-box;
   height: 100%;
   overflow-y: auto;
+  div.view-content {
+
+    height: 100%;
+    width: 100%;
+    transition: all 5s;
+  }
+  div.view-content.ng-enter,
+  div.view-content.ng-leave{
+
+    height: 0 !important;
+    background: red;
+  }
 }
 .app-toolbar div.md-toolbar-tools .menu-btn {
 

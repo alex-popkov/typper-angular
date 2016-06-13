@@ -14,7 +14,6 @@
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="app/typper.services/services.module.js"></script>
-    <script src="app/typper.services/services.getviewportsize.js"></script>
     <script src="app/typper.application/application.module.js"></script>
     <script src="app/typper.application/application.config.js"></script>
     <script src="app/typper.posts/posts.module.js"></script>
@@ -39,7 +38,11 @@
 
     <!--views-->
     <div
-        data-ng-view class="view-wrapper">
+      class="view-wrapper">
+      <div
+          data-ng-view
+          class="view-content">
+      </div>
     </div>
 
     <!-- sidebar -->
