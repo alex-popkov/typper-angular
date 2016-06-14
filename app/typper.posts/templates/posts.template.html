@@ -9,7 +9,8 @@
                         'social-tw': post.source == postsConstants.TWITTER,
                         'social-g': post.source == postsConstants.GOOGLE_PLUS,
                         'social-inst': post.source == postsConstants.INSTAGRAM}"
-        data-list-item-id="{{post.id}}">
+        data-list-item-id="{{post.id}}"
+        data-md-ink-ripple>
         <div
             class="content-wrapper">
             <div
@@ -75,7 +76,8 @@
         'social-tw': post.source == postsConstants.TWITTER,
         'social-g': post.source == postsConstants.GOOGLE_PLUS,
         'social-inst': post.source == postsConstants.INSTAGRAM}"
-        data-list-item-id="{{post.id}}">
+        data-list-item-id="{{post.id}}"
+        data-md-ink-ripple>
         <div
             class="content-wrapper">
             <div
@@ -132,6 +134,8 @@
 
 <!--Goldenratio view-->
 <div
+    class="goldenrationview-wrapper"
+    style="width: {{postsRowWidth}}px"
     data-ng-if="viewportWidth > postsConstants.COLUMN_WIDTH">
     <div
         data-ng-repeat="template in templates track by $index">
@@ -139,14 +143,16 @@
         <div
             data-ng-if="template.template == '1.0'"
             data-tpl="0"
-            class="view goldenratio-view brick mdl-card-wrapper">
+            class="view goldenratio-view brick mdl-card-wrapper"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="mdl-card mdl-shadow--2dp"
                 data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                data-md-ink-ripple>
                 <div
                     class="content-wrapper">
                     <div
@@ -204,7 +210,8 @@
         <div
             data-ng-if="template.template == '2.0'"
             data-tpl="1"
-            class="view goldenratio-view brick">
+            class="view goldenratio-view brick"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
             <div
@@ -213,7 +220,8 @@
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -275,7 +283,8 @@
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -335,7 +344,8 @@
         <div
             data-ng-if="template.template == '2.1'"
             data-tpl="2"
-            class="view goldenratio-view brick">
+            class="view goldenratio-view brick"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="ab brick mdl-card-wrapper">
                 <div
@@ -344,7 +354,8 @@
                         'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                         'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                         'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -406,7 +417,8 @@
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 1 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -441,12 +453,12 @@
                             <div
                                     class="brick img-container"
                                     data-ng-if="pageData[ $index ][ 1 ].video"
-                                    style="background-image: url('{{pageData[ $index ][ 1 ].video[ 1 ].image.sourceLink}}')">
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].video[ 0 ].image.sourceLink}}')">
                             </div>
                             <div
                                     class="brick img-container"
                                     data-ng-if="pageData[ $index ][ 1 ].image && !pageData[ $index ][ 1 ].video"
-                                    style="background-image: url('{{pageData[ $index ][ 1 ].image[ 1 ].sourceLink}}')">
+                                    style="background-image: url('{{pageData[ $index ][ 1 ].image[ 0 ].sourceLink}}')">
                             </div>
                             <div
                                     data-ng-if="pageData[ $index ][ 1 ].image || pageData[ $index ][ 1 ].video"
@@ -466,7 +478,8 @@
         <div
             data-ng-if="template.template == '3.0'"
             data-tpl="3"
-            class="view goldenratio-view brick">
+            class="view goldenratio-view brick"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
                 <div
@@ -475,7 +488,8 @@
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -539,7 +553,8 @@
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -601,7 +616,8 @@
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -662,7 +678,8 @@
         <div
             data-ng-if="template.template == '3.1'"
             data-tpl="4"
-            class="view goldenratio-view brick">
+            class="view goldenratio-view brick"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
                 <div
@@ -671,7 +688,8 @@
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div
@@ -735,7 +753,8 @@
                         'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
                         'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
                         'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -797,7 +816,8 @@
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 2 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -858,7 +878,8 @@
         <div
             data-ng-if="template.template == '3.2'"
             data-tpl="5"
-            class="view goldenratio-view brick">
+            class="view goldenratio-view brick"
+            style="height: {{postsRowHeight}}px">
             <div
                 class="ab brick">
                 <div
@@ -869,7 +890,8 @@
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 0 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 0 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 0 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 0 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -931,7 +953,8 @@
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 1 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 1 ].source == postsConstants.INSTAGRAM}"
-                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}">
+                        data-list-item-id="{{pageData[ $index ][ 1 ].id}}"
+                        data-md-ink-ripple>
                         <div
                             class="content-wrapper">
                             <div
@@ -994,7 +1017,8 @@
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
                             'social-g': pageData[ $index ][ 2 ].source == postsConstants.GOOGLE_PLUS,
                             'social-inst': pageData[ $index ][ 2 ].source == postsConstants.INSTAGRAM}"
-                    data-list-item-id="{{pageData[ $index ][ 2 ].id}}">
+                    data-list-item-id="{{pageData[ $index ][ 2 ].id}}"
+                    data-md-ink-ripple>
                     <div
                         class="content-wrapper">
                         <div

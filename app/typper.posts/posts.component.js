@@ -8,23 +8,45 @@ angular
     .component( 'postsComponent', {
 
         templateUrl: 'app/typper.posts/templates/posts.template.html',
-        controller: [ '$scope', '$http', 'POSTS_CONSTANTS', 'GoldenratioTemplate',
+        controller: [ '$scope', '$http', '$window', 'POSTS_CONSTANTS', 'GoldenratioTemplate', 'GoldenratioMath',
 
-            function postsCtrl( $scope, $http, POSTS_CONSTANTS, GoldenratioTemplate ){
+            function postsCtrl( $scope, $http, $window, POSTS_CONSTANTS, GoldenratioTemplate, GoldenratioMath ){
 
+                var self = this;
                 $scope.postsConstants = POSTS_CONSTANTS;
 
-                $scope.viewportHeight = angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+                $scope.viewportHeight = $window.innerHeight -
+
+                    angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+
                 $scope.viewportWidth = angular.element( document.querySelectorAll( '.view-content' ) )[ 0 ].clientWidth;
 
                 var destroy = angular.element( window ).bind( 'resize', function( ){
 
                     $scope.$apply( function( ){
 
-                        $scope.viewportHeight = angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+                        $scope.viewportHeight = $window.innerHeight -
+
+                            angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
+
                         $scope.viewportWidth = angular.element( document.querySelectorAll( '.view-content' ) )[ 0 ].clientWidth;
+                        $scope.postsRowWidth = GoldenratioMath.getGoldenSize(
+
+                            self.calculateViewportSize( ).width, self.calculateViewportSize( ).height ).width;
+
+                        $scope.postsRowHeight = GoldenratioMath.getGoldenInner( $scope.viewportHeight )
                     } );
                 });
+
+                this.calculateViewportSize = function( ){
+
+                   return GoldenratioMath.getGoldenSize( $scope.viewportWidth, $scope.viewportHeight );
+                };
+                $scope.postsRowWidth = GoldenratioMath.getGoldenSize(
+
+                    this.calculateViewportSize( ).width, this.calculateViewportSize( ).height ).width;
+
+                $scope.postsRowHeight = GoldenratioMath.getGoldenInner( $scope.viewportHeight );
 
                 $http
                     .get( 'app/typper.posts/resources/data/postsdata0.json' )
@@ -114,21 +136,19 @@ angular
 
                         //
                         $scope.templates = GoldenratioTemplate.getResult( $scope.posts.length );
-
-                        console.log( $scope.templates );
-
-                        $scope.pageData = [];
+                        $scope.pageData = [ ];
+                        var postsClone = angular.copy( $scope.posts );
                         angular.forEach( $scope.templates, function( tpl ){
 
-                            $scope.dataArray = [ ];
+                           var dataArray = [ ];
 
                             for( var i = 0; i < tpl.postsNumber; i++ ){
 
-                                $scope.dataArray.push( $scope.posts[ i ] );
+                                dataArray.push( postsClone[ i ] );
                             }
-                            $scope.pageData.push( $scope.dataArray );
+                            $scope.pageData.push( dataArray );
+                            postsClone.splice( 0, tpl.postsNumber );
                         });
-                        console.log( $scope.pageData );
                     });
 
                 $scope.$on( '$destroy', function( ){

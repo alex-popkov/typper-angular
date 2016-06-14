@@ -95,10 +95,14 @@
 }
 
 //goldenratio view
+
+div.goldenrationview-wrapper {
+
+  margin: 0 auto;
+}
 & div.goldenratio-view {
 
   width: 100%;
-  height: 100px;
   & div.mdl-card {
 
     cursor: pointer;
