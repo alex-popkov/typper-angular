@@ -1,94 +1,102 @@
-<div  id="{$data.id}"
-      class="{css view} {css single-post-block}
-        {switch $data.source}
-            {case $source.FB}
-                {sp}{css social-fb}
-            {case $source.TWITTER}
-                {sp}{css social-tw}
-            {case $source.GOOGLE_PLUS}
-                {sp}{css social-g}
-            {case $source.INSTAGRAM}
-                {sp}{css social-inst}
-        {/switch}">
+<div  id="{{post.id}}"
+      class="view single-post-block"
+      data-ng-class="{'social-fb': post.source == singlePostConstants.FACEBOOK,
+                        'social-tw': post.source == singlePostConstants.TWITTER,
+                        'social-g': post.source == singlePostConstants.GOOGLE_PLUS,
+                        'social-inst': post.source == singlePostConstants.INSTAGRAM}"
+      style="width: {{postsRowHeight}}px">
     <div
-            class="{css mdl-card} {css mdl-shadow--2dp}">
+            class="mdl-card mdl-shadow--2dp">
         <div
-                class="{css single-post-title-wrapper}">
+                class="single-post-title-wrapper">
             <div
-                    class="{css post-created-date-wrapper}">
+                    class="post-created-date-wrapper">
                 <i
-                        class="{css awesome-icons}"
-                        aria-hidden="true">
-                    {switch $data.source}
-                    {case $source.FB}
-                    {literal}&#xf09a;{/literal}
-                    {case $source.TWITTER}
-                    {literal}&#xf099;{/literal}
-                    {case $source.GOOGLE_PLUS}
-                    {literal}&#xf0d5;{/literal}
-                    {case $source.INSTAGRAM}
-                    {literal}&#xf16d;{/literal}
-                    {/switch}
+                    data-ng-if="{{post.source}} == singlePostConstants.FACEBOOK"
+                    class="awesome-icons"
+                    area-hidden="true">
+                    &#xf09a;
+                </i>
+                <i
+                    data-ng-if="{{post.source}} == singlePostConstants.TWITTER"
+                    class="awesome-icons"
+                    area-hidden="true">
+                    &#xf099;
+                </i>
+                <i
+                    data-ng-if="{{post.source}} == singlePostConstants.GOOGLE_PLUS"
+                    class="awesome-icons"
+                    area-hidden="true">
+                    &#xf0d5;
+                </i>
+                <i
+                    data-ng-if="{{post.source}} == singlePostConstants.INSTAGRAM"
+                    class="awesome-icons"
+                    area-hidden="true">
+                    &#xf16d;
                 </i>
                 <div
-                        class="{css post-created-date}">
-                    {$data.createdTime}
+                    class="post-created-date">
+                    {{post.createdTime}}
                 </div>
             </div>
         </div>
-        {if $data.video.length}
         <div
-                class="{css single-post-media-container} {css mdl-card--border}">
-            {if $data.video[ 0 ].contentType == 'video/mp4'}
+            data-ng-if="{{post.video.length}}"
+            class="single-post-media-container mdl-card--border">
             <video
-                    class="{css single-post-video}"
-                    controls>
-                <source src="{$data.video[ 0 ].sourceLink|noAutoescape}" type="video/mp4">
+                data-ng-if="{{post.video[ 0 ].contentType}} == 'video/mp4'"
+                class="single-post-video"
+                controls>
+                <source src="{{post.video[ 0 ].sourceLink}}" type="video/mp4">
             </video>
-            {elseif $data.video[ 0 ].contentType == 'video/youtube'}
             <embed
-                    class="{css single-post-video}"
-                    src="{$data.video[ 0 ].sourceLink|noAutoescape}">
-                {/if}
+                data-ng-if="{{post.video[ 0 ].contentType}} == 'video/youtube'"
+                class="single-post-video"
+                src="{post.video[ 0 ].sourceLink|noAutoescape}">
         </div>
-        {elseif $data.image.length}
         <div
-                class="{css single-post-media-container} {css mdl-card--border}">
+                data-ng-if="!{{post.video.length}} && {{post.image.length}}"
+                class="single-post-media-container mdl-card--border}">
             <img
-                    class="{css single-post-img}"
-                    src="{$data.image[ 0 ].sourceLink|noAutoescape}">
+                    class="single-post-img"
+                    src="{post.image[ 0 ].sourceLink|noAutoescape}">
         </div>
-        {/if}
-        {if $data.text}
         <div
-                class="{css single-post-txt-wrapper} {css mdl-card--border}">
+                data-ng-if="{{post.text}}"
+                class="single-post-txt-wrapper mdl-card--border">
             <div
-                    class="{css article-txt} {css mdl-color-text--grey-800}">
-                {$data.text}
+                    class="article-txt mdl-color-text--grey-800}">
+                {{post.text}}
             </div>
         </div>
-        {/if}
         <div
-                class="{css button-post-wrapper} {css mdl-card--border}">
+            class="button-post-wrapper mdl-card--border">
             <a
-                    class="{css open-original-post-btn} {css mdl-button} {css mdl-js-button}
-                           {css mdl-button--raised} {css highlighted-element}"
-                    href="{$data.sourceLink}"
+                    class="open-original-post-btn mdl-button mdl-js-button
+                           mdl-button--raised highlighted-element"
+                    href="{{post.sourceLink}}"
                     target="_blank">
                     <span
-                            id="open-button-message">
+                        id="open-button-message">
                         Open with
                     </span>
-                {switch $data.source}
-                {case $source.FB}
-                {sp} Facebook
-                {case $source.TWITTER}
-                {sp} Twitter
-                {case $source.GOOGLE_PLUS}
-                {sp} Google+
-                {case $source.INSTAGRAM}
-                {sp} Instagram
-                {/switch}
+                    <span
+                        data-ng-if="{{post.source}} == singlePostConstants.FACEBOOK">
+                        Facebook
+                    </span>
+                    <span
+                        data-ng-if="{{post.source}} == singlePostConstants.TWITTER">
+                        Twitter
+                    </span>
+                    <span
+                        data-ng-if="{{post.source}} == singlePostConstants.GOOGLE_PLUS">
+                        Google+
+                    </span>
+                    <span
+                        data-ng-if="{{post.source}} == singlePostConstants.INSTAGRAM">
+                        Instagram
+                    </span>
             </a>
         </div>
     </div>

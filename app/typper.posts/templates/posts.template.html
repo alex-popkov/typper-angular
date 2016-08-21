@@ -3,7 +3,8 @@
     data-ng-if="viewportWidth < postsConstants.LIST_WIDTH"
     data-ng-repeat="post in posts"
     class="view  brick  mdl-card-wrapper  list-view">
-    <div
+    <a
+        href="#!/posts/{{post.id}}"
         class="mdl-card  mdl-shadow--2dp"
         data-ng-class="{'social-fb': post.source == postsConstants.FACEBOOK,
                         'social-tw': post.source == postsConstants.TWITTER,
@@ -62,7 +63,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 
 <!--two column view template-->
@@ -70,7 +71,8 @@
     data-ng-if="viewportWidth > postsConstants.LIST_WIDTH && viewportWidth < postsConstants.COLUMN_WIDTH"
     data-ng-repeat="post in posts"
     class="view brick mdl-card-wrapper column-view">
-    <div
+    <a
+        href="#!/posts/{{post.id}}"
         class="mdl-card mdl-shadow--2dp"
         data-ng-class="{'social-fb': post.source == postsConstants.FACEBOOK,
         'social-tw': post.source == postsConstants.TWITTER,
@@ -129,7 +131,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 
 <!--Goldenratio view-->
@@ -145,7 +147,8 @@
             data-tpl="0"
             class="view goldenratio-view brick mdl-card-wrapper"
             style="height: {{postsRowHeight}}px">
-            <div
+            <a
+                href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                 class="mdl-card mdl-shadow--2dp"
                 data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -204,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!--two view tpl_0-->
         <div
@@ -214,7 +217,8 @@
             style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
-            <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                     class="mdl-card mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -273,11 +277,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div
                 class="ab brick mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 1 ].id}}"
                     class="mdl-card mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
@@ -336,7 +341,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -348,7 +353,8 @@
             style="height: {{postsRowHeight}}px">
             <div
                 class="ab brick mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                     class="mdl-card  mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                         'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -407,11 +413,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div
                 class="as brick  mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 1 ].id}}"
                     class="mdl-card  mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
@@ -470,7 +477,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
@@ -482,7 +489,8 @@
             style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                     class="mdl-card  mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -541,13 +549,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div
                 class="ab brick">
                 <div
                     class="as brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 1 ].id}}"
                         class="mdl-card  mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
@@ -606,11 +615,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div
                     class="ab brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 2 ].id}}"
                         class="mdl-card  mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
@@ -669,7 +679,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -682,7 +692,8 @@
             style="height: {{postsRowHeight}}px">
             <div
                 class="as brick mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                     class="mdl-card mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -741,13 +752,14 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div
                 class="ab brick">
                 <div
                     class="ab brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 1 ].id}}"
                         class="mdl-card mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
                         'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
@@ -806,11 +818,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div
                     class="as brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 2 ].id}}"
                         class="mdl-card mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
@@ -869,7 +882,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -884,7 +897,8 @@
                 class="ab brick">
                 <div
                     class="as brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 0 ].id}}"
                         class="mdl-card mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 0 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 0 ].source == postsConstants.TWITTER,
@@ -943,11 +957,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div
                     class="ab brick mdl-card-wrapper">
-                    <div
+                    <a
+                        href="#!/posts/{{pageData[ $index ][ 1 ].id}}"
                         class="mdl-card mdl-shadow--2dp"
                         data-ng-class="{'social-fb': pageData[ $index ][ 1 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 1 ].source == postsConstants.TWITTER,
@@ -1006,12 +1021,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div
                 class="as brick mdl-card-wrapper">
-                <div
+                <a
+                    href="#!/posts/{{pageData[ $index ][ 2 ].id}}"
                     class="mdl-card mdl-shadow--2dp"
                     data-ng-class="{'social-fb': pageData[ $index ][ 2 ].source == postsConstants.FACEBOOK,
                             'social-tw': pageData[ $index ][ 2 ].source == postsConstants.TWITTER,
@@ -1070,7 +1086,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

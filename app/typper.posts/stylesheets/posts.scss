@@ -103,7 +103,7 @@ div.goldenrationview-wrapper {
 & div.goldenratio-view {
 
   width: 100%;
-  & div.mdl-card {
+  & .mdl-card {
 
     cursor: pointer;
   }
@@ -399,7 +399,7 @@ div.goldenrationview-wrapper {
 }
 & div.single-post-block {
 
-  div.mdl-card {
+  .mdl-card {
 
     display: block;
     width: 100%;
@@ -481,7 +481,7 @@ div.goldenrationview-wrapper {
   }
   @media (min-width: 768px) and (max-width: 1439px){
 
-    & div.mdl-card {
+    & .mdl-card {
 
       width: calc( 100% - 40px );
     }
@@ -501,7 +501,7 @@ div.goldenrationview-wrapper {
 
       padding: 20px 60px 20px 60px;
     }
-    & div.mdl-card {
+    & .mdl-card {
 
       padding: 0 0 77px 0;
     }
@@ -529,7 +529,7 @@ div.goldenrationview-wrapper {
 
     width: 100%;
   }
-  & div.mdl-card {
+  & .mdl-card {
 
     margin: 0 auto;
     padding-top: 0;
