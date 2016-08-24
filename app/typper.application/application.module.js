@@ -9,7 +9,8 @@ angular
         'ngRoute',
         'ngMaterial',
         'typper.posts',
-        'typper.services'
+        'typper.services',
+        'typper.singlePost'
     ])
     .controller( 'ApplicationCtrl', function( $scope, $mdSidenav ) {
 

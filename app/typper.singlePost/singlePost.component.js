@@ -46,7 +46,7 @@ angular
                     this.calculateViewportSize( ).width, this.calculateViewportSize( ).height ).width;
 
                 $http
-                    .get( 'app/typper.singlePosts/resources/data/postdata' + this.id + '.json' )
+                    .get( 'app/typper.singlePost/resources/data/postdata' + this.id + '.json' )
                     .then( function( response ){
 
                         $scope.post = [ ];

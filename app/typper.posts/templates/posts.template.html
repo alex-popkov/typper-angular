@@ -6,10 +6,7 @@
     <a
         href="#!/posts/{{post.id}}"
         class="mdl-card  mdl-shadow--2dp"
-        data-ng-class="{'social-fb': post.source == postsConstants.FACEBOOK,
-                        'social-tw': post.source == postsConstants.TWITTER,
-                        'social-g': post.source == postsConstants.GOOGLE_PLUS,
-                        'social-inst': post.source == postsConstants.INSTAGRAM}"
+        data-ng-class="addSocialClass( {{post.source}} )"
         data-list-item-id="{{post.id}}"
         data-md-ink-ripple>
         <div

@@ -20,7 +20,7 @@ angular
               } )
               .when( '/posts/:id', {
 
-                template: '<singlePost-component></singlePost-component>'
+                template: '<single-post-component></single-post-component>'
               } )
               .otherwise( '/error' );
         }

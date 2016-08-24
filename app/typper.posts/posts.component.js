@@ -13,6 +13,27 @@ angular
             function postsCtrl( $scope, $http, $window, POSTS_CONSTANTS, GoldenratioTemplate, GoldenratioMath ){
 
                 var self = this;
+
+                $scope.addSocialClass = function( source ){
+
+                    if( source === POSTS_CONSTANTS.FACEBOOK ){
+
+                        return 'social-fb';
+
+                    }else if( source === POSTS_CONSTANTS.TWITTER ){
+
+                        return 'social-tw';
+
+                    }else if( source === POSTS_CONSTANTS.GOOGLE_PLUS ){
+
+                        return 'social-g';
+
+                    }else if( source === POSTS_CONSTANTS.INSTAGRAM ){
+
+                        return 'social-inst';
+
+                    }
+                };
                 $scope.postsConstants = POSTS_CONSTANTS;
 
                 $scope.viewportHeight = $window.innerHeight -
