@@ -37,19 +37,19 @@
     padding: 0px 10px 10px 10px;
     z-index: 999;
   }
-  & div.social-fb {
+  & .social-fb {
 
     background: $fb-color;
   }
-  & div.social-g {
+  & .social-g {
 
     background: $g-color;
   }
-  & div.social-tw {
+  & .social-tw {
 
     background: $tw-color;
   }
-  & div.social-inst {
+  & .social-inst {
 
     background: $inst-color;
   }
@@ -139,19 +139,19 @@ div.goldenrationview-wrapper {
 
     width: 100%;
   }
-  & div.social-fb div.text-wrapper-bg {
+  & .social-fb div.text-wrapper-bg {
 
     background: $fb-color;
   }
-  & div.social-g div.text-wrapper-bg {
+  & .social-g div.text-wrapper-bg {
 
     background: $g-color;
   }
-  & div.social-tw div.text-wrapper-bg {
+  & .social-tw div.text-wrapper-bg {
 
     background: $tw-color;
   }
-  & div.social-inst div.text-wrapper-bg {
+  & .social-inst div.text-wrapper-bg {
 
     background: $inst-color;
   }
@@ -305,35 +305,35 @@ div.goldenrationview-wrapper {
   height: 100%;
   left: 0;
 }
-& .brick div.social-fb div.color-filter-solid{
+& .brick .social-fb div.color-filter-solid {
 
   background: $fb-color;
 }
-& .brick div.social-g div.color-filter-solid {
+& .brick .social-g div.color-filter-solid {
 
   background: $g-color;
 }
-& .brick div.social-tw div.color-filter-solid {
+& .brick .social-tw div.color-filter-solid {
 
   background: $tw-color;
 }
-& .brick div.social-inst div.color-filter-solid {
+& .brick .social-inst div.color-filter-solid {
 
   background: $inst-color;
 }
-& .brick div.social-fb div.color-filter-solid-trans {
+& .brick .social-fb div.color-filter-solid-trans {
 
   background: $fb-color-transparent;
 }
-& .brick div.social-g div.color-filter-solid-trans {
+& .brick .social-g div.color-filter-solid-trans {
 
   background: $g-color-transparent;
 }
-& .brick div.social-tw div.color-filter-solid-trans {
+& .brick .social-tw div.color-filter-solid-trans {
 
   background: $tw-color-transparent;
 }
-& .brick div.social-inst div.color-filter-solid-trans {
+& .brick .social-inst div.color-filter-solid-trans {
 
   background: $inst-color-transparent;
 }
@@ -594,7 +594,7 @@ div.vendor-item {
 main.mdl-layout__content div.page-content div.page-content div.view-content div.vendorposts-view {
 
   cursor: pointer;
-  & div.social-fb.selected {
+  & .social-fb.selected {
 
     background: none;
     & div.img-block-wrapper div.color-filter i.awesome-icons.checked-icon {
@@ -602,7 +602,7 @@ main.mdl-layout__content div.page-content div.page-content div.view-content div.
       color: $fb-color;
     }
   }
-  & div.social-g.selected {
+  & .social-g.selected {
 
     background: none;
     & div.img-block-wrapper div.color-filter i.awesome-icons.checked-icon {
@@ -610,7 +610,7 @@ main.mdl-layout__content div.page-content div.page-content div.view-content div.
       color: $g-color;
     }
   }
-  & div.social-tw.selected {
+  & .social-tw.selected {
 
     background: none;
     div.img-block-wrapper div.color-filter i.awesome-icons.checked-icon {
@@ -618,7 +618,7 @@ main.mdl-layout__content div.page-content div.page-content div.view-content div.
       color: $tw-color;
     }
   }
-  & div.social-inst.selected {
+  & .social-inst.selected {
 
     background: none;
     div.img-block-wrapper div.color-filter i.awesome-icons.checked-icon {

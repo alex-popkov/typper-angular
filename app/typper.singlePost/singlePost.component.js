@@ -31,7 +31,7 @@ angular
                             angular.element( document.querySelectorAll( '.app-toolbar' ) )[ 0 ].clientHeight;
 
                         $scope.viewportWidth = angular.element( document.querySelectorAll( '.view-content' ) )[ 0 ].clientWidth;
-                        $scope.postsRowWidth = GoldenratioMath.getGoldenSize(
+                        $scope.postRowWidth = GoldenratioMath.getGoldenSize(
 
                             self.calculateViewportSize( ).width, self.calculateViewportSize( ).height ).width;
                     } );
@@ -41,7 +41,7 @@ angular
 
                     return GoldenratioMath.getGoldenSize( $scope.viewportWidth, $scope.viewportHeight );
                 };
-                $scope.postsRowWidth = GoldenratioMath.getGoldenSize(
+                $scope.postRowWidth = GoldenratioMath.getGoldenSize(
 
                     this.calculateViewportSize( ).width, this.calculateViewportSize( ).height ).width;
 
@@ -101,7 +101,7 @@ angular
                                     );
                                 } );
                             }
-                            $scope.posts.push(
+                            $scope.post.push(
 
                                 {
                                     id: postData[ 0 ],
